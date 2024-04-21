@@ -29,9 +29,9 @@ However, developing software for this purpose involves several risks that need t
 | ------- |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------|
 | 1  |  Airport  | maxCapacity @integer   | getCapacity() @integer | @integer 
 | 2  |  Airport  | maxCapacity @integer    | updateCapacity(@integer)         | @void | 
-| 3  |  Airport   | currentlyLanded @Array[@Airplane]   | instructLanding(@Airplane) <br> checkIfFull() <br> checkIfLanded(@Airplane) | @boolean <br> @boolean <br> @boolean <br> @void |
+| 3  |  Airport   | currentlyLanded @Array[@Airplane]   | instructLanding(@Airplane) <br> checkIfFull() <br> checkIfLanded(@Airplane) | @boolean <br> @boolean <br> @boolean  |
 |   |  Airplane   |  ID @string |   |  |
-| 4  |  Airport   | currentlyLanded @Array[@Airplane]  | instructTakeoff(@Airplane)  <br> checkIfLanded(@Airplane)   | @boolean  <br> @boolean <br> @void |
+| 4  |  Airport   | currentlyLanded @Array[@Airplane]  | instructTakeoff(@Airplane)  <br> checkIfLanded(@Airplane)   | @boolean  <br> @boolean  |
 |   |  Airplane   |   ID @string   |   |   |
 
 <h3>Test cases</h3>

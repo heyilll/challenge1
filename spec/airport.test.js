@@ -99,12 +99,26 @@ console.log(result ? `Pass` : `Fail`);
 console.log(`==============================`);
 reset(); 
 
+// console.log(`Test 3-3`);
+// //Arrange
+// expected = false;
+// //Act
+// airport.currentlyLanded = [airplane];
+// actual = airport.checkIfLanded(airplane);
+// //Assert
+// result = assertEquals(actual, expected);
+// //Report
+// console.log(result ? `Pass` : `Fail`);
+// console.log(`==============================`);
+// reset(); 
+
 console.log(`Test 3-4`);
 //Arrange
 expected = true;
 //Act
-airport.instructLanding(airplane);
-actual = airport.checkIfLanded(airplane);
+let x = { id: "first" };
+airport.currentlyLanded.push(x);
+actual = airport.checkIfLanded(x);
 //Assert
 result = assertEquals(actual, expected);
 //Report
