@@ -29,18 +29,15 @@ However, developing software for this purpose involves several risks that need t
 | ------- |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------|
 | 1  |  Airport  | maxCapacity @integer   | getCapacity() @integer | @integer 
 | 2  |  Airport  | maxCapacity @integer    | updateCapacity(@integer)         | @void | 
-| 3  |  Airport   | currentlyLanded @Array[@Airplane]   | instructLanding(@Airplane) <br> checkIfFull() <br> checkIfLanded(@Airplane) <br> addToAirport(@Airplane) | @boolean <br> @boolean <br> @boolean <br> @void |
+| 3  |  Airport   | currentlyLanded @Array[@Airplane]   | instructLanding(@Airplane) <br> checkIfFull() <br> checkIfLanded(@Airplane) | @boolean <br> @boolean <br> @boolean <br> @void |
 |   |  Airplane   |  ID @string |   |  |
-| 4  |  Airport   | currentlyLanded @Array[@Airplane]  | instructTakeoff(@Airplane)  <br> checkIfLanded(@Airplane) <br> removeFromAirport(@Airplane) | @boolean  <br> @boolean <br> @void |
+| 4  |  Airport   | currentlyLanded @Array[@Airplane]  | instructTakeoff(@Airplane)  <br> checkIfLanded(@Airplane)   | @boolean  <br> @boolean <br> @void |
 |   |  Airplane   |   ID @string   |   |   |
 
 <h3>Test cases</h3>
 
-1.  
-   1. Returns the current maximum capacity of the airport
-   2. Test that the item that is removed from the basket is the item passed through removeItem
-2. 
-   1. Test that the item that is removed from the basket is the item passed through removeItem
+1. 1. Returns the current maximum capacity of the airport 
+2. 1. Test that the item that is removed from the basket is the item passed through removeItem
    2. Check that the maximum capacity has been changed to the correct number
 3. 1. Check that the plane is not already at the airport before attempting to instructing it to land
    2. Check that there is enough capacity at the airport before allowing the plane to land
