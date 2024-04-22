@@ -24,6 +24,9 @@ const airport = {
     }, 
     instructLanding: function (planeID) { 
         if (!this.checkIfLanded(planeID) && !this.checkIfFull()&& typeof planeID === "string") { 
+            if (this.weather === "stormy") {
+                return false;
+            }
             const x = new Airplane(planeID);
             this.currentlyLanded.push(x);
             return true;
@@ -32,12 +35,20 @@ const airport = {
     },
     instructTakeoff: function (planeID) {
         if (this.checkIfLanded(planeID)) {
+            if (this.weather === "stormy") {
+                return false;
+            }
             let ind = this.currentlyLanded.findIndex(x => x.getID() === planeID);
             this.currentlyLanded = this.currentlyLanded.splice(ind, 1);
             return true;
         }
         return false;
     },
+    weather: "normal",
+    updateWeather: function () {
+        const weatherConditions = ["normal", "stormy"]
+        this.weather = weatherConditions[Math.floor(Math.random() * weatherConditions.length)];
+    }
 };
 
 export default airport;

@@ -8,6 +8,7 @@ const reset = () => {
     result = undefined;
     airport.currentlyLanded = []; 
     airport.capacity = 5;
+    airport.weather = "normal";
 }
 
 // Test 1 - 1
@@ -170,6 +171,33 @@ console.log(`Test 4-1c`);
 expected = true;
 //Act  
 airport.currentlyLanded.push(x);
+actual = airport.instructTakeoff(x.getID());
+//Assert
+result = assertEquals(actual, expected);
+//Report
+console.log(result ? `Pass` : `Fail`);
+console.log(`==============================`);
+reset(); 
+
+console.log(`Test 5-1a`);
+//Arrange
+expected = false;
+//Act
+airport.weather = "stormy";
+actual = airport.instructLanding(x.getID());
+//Assert
+result = assertEquals(actual, expected);
+//Report
+console.log(result ? `Pass` : `Fail`);
+console.log(`==============================`);
+reset();
+
+console.log(`Test 5-1b`);
+//Arrange
+expected = false;
+//Act  
+airport.currentlyLanded.push(x);
+airport.weather = "stormy";
 actual = airport.instructTakeoff(x.getID());
 //Assert
 result = assertEquals(actual, expected);

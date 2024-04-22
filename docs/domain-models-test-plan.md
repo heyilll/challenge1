@@ -20,6 +20,7 @@ However, developing software for this purpose involves several risks that need t
 | airport traffic controller | be able to change the maximum capacity of the airport       | the airport can be represented correctly when new extensions are built             |
 | airport traffic controller | be able to instruct a plane to land at the airport    | I can ensure the safety of the planes already at the airports|
 | airport traffic controller | be able to instruct a plane to take off from the airport   | I can effectively manage the flow of air traffic  |
+| airport traffic controller | stop airplanes from taking off and landing when the weather is stormy   | I can keep incoming and outgoing air traffic safe in unsafe weather conditions  |
 ---
 
 <h2>Task 3</h2>
@@ -32,6 +33,8 @@ However, developing software for this purpose involves several risks that need t
 | 3  |  Airport   | currentlyLanded @Array[@Airplane]   | instructLanding(@Airplane) <br> checkIfFull() <br> checkIfLanded(@Airplane) | @boolean <br> @boolean <br> @boolean  |
 |   |  Airplane   |  ID @string |   |  |
 | 4  |  Airport   | currentlyLanded @Array[@Airplane]  | instructTakeoff(@Airplane)  <br> checkIfLanded(@Airplane)   | @boolean  <br> @boolean  |
+|   |  Airplane   |   ID @string   |   |   |
+| 5  |  Airport   | currentlyLanded @Array[@Airplane] <br> weather @string | instructLanding(@Airplane)  <br> instructTakeoff(@Airplane)   | @boolean  <br> @boolean  |
 |   |  Airplane   |   ID @string   |   |   |
 
 <h3>Test cases</h3>
@@ -53,5 +56,8 @@ However, developing software for this purpose involves several risks that need t
       1. Test that a airplane that hasn't landed isn't instructed to take off
       2. Check that planes with null ids are not allowed to be instructed to take off
       3. Check that the airplane is already landed at the airport before instructing it to take off
+5. 1. For the weather conditions
+      1. Test that the instructLanding function returns false when the weather conditions are stormy
+      2. Test that the instructTakeoff function returns false when the weather conditions are stormy
 
 ---
