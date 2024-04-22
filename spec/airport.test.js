@@ -1,4 +1,4 @@
-import { assertEquals, assertNotEquals } from "../spec/test-framework/test-framework.js";
+import { assertEquals, assertNotEquals } from "../test-framework/test-framework.js";
 import airport from "../src/airport.js"
 import airplane from "../src/airplane.js";
 
