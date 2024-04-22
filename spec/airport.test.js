@@ -1,13 +1,13 @@
-import { assertEquals, assertNotEquals } from "../test-framework/test-framework.js";
+import { assertEquals, assertNotEquals } from "./test-framework/test-framework.js";
 import airport from "../src/airport.js"
-import airplane from "../src/airplane.js";
+import Airplane from "../src/airplane.js";
 
 const reset = () => {
     expected = undefined;
     actual = undefined;
     result = undefined;
-    airport.currentlyLanded = [];
-    airplane.id = "default";
+    airport.currentlyLanded = []; 
+    airport.capacity = 5;
 }
 
 // Test 1 - 1
@@ -49,7 +49,7 @@ console.log(result ? `Pass` : `Fail`);
 console.log(`==============================`);
 reset();
 
-console.log(`Test 3-1`);
+console.log(`Test 3-1a`);
 //Arrange
 expected = false;
 //Act
@@ -59,26 +59,31 @@ result = assertEquals(actual, expected);
 //Report
 console.log(result ? `Pass` : `Fail`);
 console.log(`==============================`);
-reset(); 
+reset();  
 
-// console.log(`Test `);
-// //Arrange
-// expected = false;
-// //Act
-// airport.currentlyLanded = [];
-// actual = airport.checkIfFull();
-// //Assert
-// result = assertEquals(actual, expected);
-// //Report
-// console.log(result ? `Pass` : `Fail`);
-// console.log(`==============================`);
-// reset(); 
+console.log(`Test 3-1b`);
+//Arrange
+expected = true;
+//Act
+const x = new Airplane("first");
+airport.currentlyLanded.push(x);
+airport.currentlyLanded.push(x);
+airport.currentlyLanded.push(x);
+airport.currentlyLanded.push(x);
+airport.currentlyLanded.push(x);
+actual = airport.checkIfFull();
+//Assert
+result = assertEquals(actual, expected);
+//Report
+console.log(result ? `Pass` : `Fail`);
+console.log(`==============================`);
+reset();  
 
-console.log(`Test 3-2`);
+console.log(`Test 3-2a`);
 //Arrange
 expected = false;
 //Act
-actual = airport.checkIfLanded(airplane);
+actual = airport.checkIfLanded();
 //Assert
 result = assertEquals(actual, expected);
 //Report
@@ -86,39 +91,24 @@ console.log(result ? `Pass` : `Fail`);
 console.log(`==============================`);
 reset();
 
-console.log(`Test 3-3`);
+console.log(`Test 3-2b`);
 //Arrange
 expected = false;
 //Act
-airplane.id = null;
-actual = airport.checkIfLanded(airplane);
+actual = airport.checkIfLanded(null);
 //Assert
 result = assertEquals(actual, expected);
 //Report
 console.log(result ? `Pass` : `Fail`);
 console.log(`==============================`);
-reset(); 
+reset();
 
-// console.log(`Test 3-3`);
-// //Arrange
-// expected = false;
-// //Act
-// airport.currentlyLanded = [airplane];
-// actual = airport.checkIfLanded(airplane);
-// //Assert
-// result = assertEquals(actual, expected);
-// //Report
-// console.log(result ? `Pass` : `Fail`);
-// console.log(`==============================`);
-// reset(); 
-
-console.log(`Test 3-4`);
+console.log(`Test 3-2c`);
 //Arrange
 expected = true;
 //Act
-let x = { id: "first" };
 airport.currentlyLanded.push(x);
-actual = airport.checkIfLanded(x);
+actual = airport.checkIfLanded("first");
 //Assert
 result = assertEquals(actual, expected);
 //Report
@@ -126,12 +116,11 @@ console.log(result ? `Pass` : `Fail`);
 console.log(`==============================`);
 reset(); 
 
-console.log(`Test 3-5`);
+console.log(`Test 3-3a`);
 //Arrange
 expected = false;
-//Act
-airplane.id = null;
-actual = airport.instructLanding(airplane); 
+//Act 
+actual = airport.instructLanding(null); 
 //Assert
 result = assertEquals(actual, expected);
 //Report
@@ -139,24 +128,49 @@ console.log(result ? `Pass` : `Fail`);
 console.log(`==============================`);
 reset(); 
 
-console.log(`Test 4-1`);
+console.log(`Test 3-3b`);
+//Arrange
+expected = false;
+//Act 
+airport.currentlyLanded.push(x);
+actual = airport.instructLanding(x.id); 
+//Assert
+result = assertEquals(actual, expected);
+//Report
+console.log(result ? `Pass` : `Fail`);
+console.log(`==============================`);
+reset(); 
+
+console.log(`Test 4-1a`);
+//Arrange
+expected = false;
+//Act 
+actual = airport.instructTakeoff('fake'); 
+//Assert
+result = assertEquals(actual, expected);
+//Report
+console.log(result ? `Pass` : `Fail`);
+console.log(`==============================`);
+reset(); 
+
+console.log(`Test 4-1b`);
+//Arrange
+expected = false;
+//Act  
+actual = airport.instructTakeoff(null); 
+//Assert
+result = assertEquals(actual, expected);
+//Report
+console.log(result ? `Pass` : `Fail`);
+console.log(`==============================`);
+reset(); 
+
+console.log(`Test 4-1c`);
 //Arrange
 expected = true;
-//Act 
-actual = airport.instructTakeoff(airplane); 
-//Assert
-result = assertEquals(actual, expected);
-//Report
-console.log(result ? `Pass` : `Fail`);
-console.log(`==============================`);
-reset(); 
-
-console.log(`Test 4-2`);
-//Arrange
-expected = false;
-//Act 
-airplane.id = null;
-actual = airport.instructTakeoff(airplane); 
+//Act  
+airport.currentlyLanded.push(x);
+actual = airport.instructTakeoff(x.getID());
 //Assert
 result = assertEquals(actual, expected);
 //Report

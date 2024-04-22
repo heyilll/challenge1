@@ -37,12 +37,21 @@ However, developing software for this purpose involves several risks that need t
 <h3>Test cases</h3>
 
 1. 1. Returns the current maximum capacity of the airport 
-2. 1. Test that the item that is removed from the basket is the item passed through removeItem
-   2. Check that the maximum capacity has been changed to the correct number
-3. 1. Check that the plane is not already at the airport before attempting to instructing it to land
-   2. Check that there is enough capacity at the airport before allowing the plane to land
-   3. Check that planes with null ids are not allowed as input
-4. 1. Check that the airplane is already landed at the airport before instructing it to take off
-   2. Check that planes with null ids are not allowed to be instructed to take off
+2. 1. Check that the maximum capacity has been changed to the correct number
+   2. Test null values passed to the method are not accepted and the capacity has not been changed
+3. 1. For the checkIfFull function
+      1. Check that the method correctly returns false when the airport is not full
+      2. Check that it returns true when the airport is full
+   2. For the checkIfLanded function
+      1. Test passing no input to the checkIfLanded function returns false
+      2. Test passing null returns false
+      3. Test passing an airplane that has landed returns true
+   3. For the instructLanding function
+      1. Check that planes with null ids are not allowed as input
+      2. Check that the plane is not already landed at the airport before attempting to instructing it to land
+4. 1. For the instructTakeoff function
+      1. Test that a airplane that hasn't landed isn't instructed to take off
+      2. Check that planes with null ids are not allowed to be instructed to take off
+      3. Check that the airplane is already landed at the airport before instructing it to take off
 
 ---

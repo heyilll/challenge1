@@ -1,4 +1,4 @@
-import airplane from "./airplane.js";
+import Airplane from "./airplane.js";
 
 const airport = {
     getCapacity: function () {
@@ -20,18 +20,19 @@ const airport = {
         if (!typeof planeID === "string") {
             return false;
         }
-        return this.currentlyLanded.some(x => x.id === planeID);
+        return this.currentlyLanded.some(x => x.getID() === planeID);
     }, 
     instructLanding: function (planeID) { 
-        if (!this.checkIfLanded(planeID) && !this.checkIfFull()) { 
-            this.currentlyLanded.push(airplane.id = planeID);
+        if (!this.checkIfLanded(planeID) && !this.checkIfFull()&& typeof planeID === "string") { 
+            const x = new Airplane(planeID);
+            this.currentlyLanded.push(x);
             return true;
         }
         return false;
     },
     instructTakeoff: function (planeID) {
         if (this.checkIfLanded(planeID)) {
-            let ind = this.currentlyLanded.findIndex(x => x.id === planeID);
+            let ind = this.currentlyLanded.findIndex(x => x.getID() === planeID);
             this.currentlyLanded = this.currentlyLanded.splice(ind, 1);
             return true;
         }
