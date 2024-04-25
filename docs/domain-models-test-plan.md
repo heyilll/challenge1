@@ -1,14 +1,30 @@
 # Domain Models and Test Plan
 <h2>Task 1</h2>
 
+<h3>Introduction</h3>
+
 This software will help manage the the proper flow of air traffic for any airport. Airports have a responsibility to ensure that the safety of all users and the reliability of efficient air traffic control systems are kept to the highest standard. Preventing collisions between airplanes and providing correct information for incoming and outgoing journeys and effectively managing the capacity of the airport are all examples of the various and important problems that are faced every day by all airports. Minimizing the risk of human error is the greatest benefit afforded by the use of software in air traffic control with which comes improved safety and reliability.  
-   - Enhances safety by maintaining safe separation distances, reducing the risk of accidents  
-   - Improves air traffic management by controlling the flow of air traffic to reduce delays and minimize congestion
-   - Provides air traffic controllers with a top down view of the airspace and how many planes are at the airport 
+
+<h3>What are the benefits of the software?</h3>
+
+- Allows control over the maximum capacity of the airport 
+- Airport traffic controllers can manage the landing of incoming planes and the taking off of outgoing planes
+- Airport traffic controllers can track the planes that are docked at the airport in real time 
+- Checks the current weather conditions to ensure the safety of air traffic to and from the airport and prevents normal operation if it gets stormy 
+
+<h3>How will the software benefit you?</h3>
+
+- Enhances safety by maintaining safe separation by allowing airport traffic controllers the ability to stagger take off and landing between planes, reducing the risk of accidents 
+- Improves air traffic management by giving airport traffic controllers better control over the flow of air traffic to reduce delays and minimize congestion
+- Provides air traffic controllers with a top down view of the airspace, external factors such as the weather conditions and how many planes are at the airport, allowing for quicker reactions to each situation
   
-However, developing software for this purpose involves several risks that need to be addressed.  
-   - Any errors in the software could lead to aircraft collisions and result in loss of life and significant damage. The software should be reliable and bug-free, as any bug can disrupt air traffic and create delays, cancellations, and financial losses for airlines and airports 
-     
+<h3>What are the risks associated with the software?</h3>  
+
+Any errors in the software could lead to aircraft collisions and result in loss of life and significant damage. The software should be reliable and bug-free, as any bug can disrupt air traffic and create delays, cancellations, and financial losses for airlines and airports. However, developing software for this purpose involves several risks that need to be addressed.
+
+- If the maximum capacity of the airport is not properly updated in the software, this could lead to the software not being able to correctly represent which planes are currently at the airport or cause planes that are over the maximum capacity recorded in the software to not be given permission to land
+- If there are any airplanes that are given the same ID, the software will not be able to differentiate between the multiple planes, which leads to confusion over which airplane is given permission to take off or land
+ 
 ---
 
 <h2>Task 2</h2>
